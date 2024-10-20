@@ -51,5 +51,13 @@ export function caesar(string, factor) {
     .join("");
 }
 
-console.log('a'.charCodeAt(0) + 3)
-console.log(String.fromCharCode(100 - 26))
+export function analyzeArray(array) {
+  return {
+    average: array.reduce((total, current) => total + current) / array.length,
+    min: Math.min(...array),
+    max: Math.max(...array),
+    length: array.length,
+  }
+}
+
+console.log(analyzeArray([1, 2]));
