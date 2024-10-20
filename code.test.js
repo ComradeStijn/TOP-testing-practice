@@ -1,4 +1,4 @@
-import { capitalize, reverse, calculator } from "./code";
+import { capitalize, reverse, calculator, caesar } from "./code";
 import { test, expect } from "@jest/globals";
 
 test("capitalize", () => {
@@ -21,3 +21,14 @@ test("Calculator", () => {
   expect(calculator.divide(8, 4)).toBeCloseTo(2);
   expect(calculator.multiply(4, 5)).toBe(20);
 });
+
+
+test("Caesar", () => {
+  expect(caesar("abc", 1)).toMatch("bcd");
+  expect(caesar("efg", 1)).toMatch("fgh");
+  expect(caesar("z", 1)).toMatch("a");
+  expect(caesar("AjKloK", 1)).toMatch("BkLmpL");
+  expect(caesar("xYz", 4)).toMatch("bCd");
+  expect(caesar("Hello, there!", 3)).toMatch("Khoor, wkhuh!");
+  expect(caesar("bcd", -1)).toMatch("abc");
+})

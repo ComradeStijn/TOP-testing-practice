@@ -14,16 +14,42 @@ export function reverse(input) {
 }
 
 export const calculator = {
-  add: function(a, b) {
+  add: function (a, b) {
     return a + b;
   },
-  subtract: function(a, b) {
+  subtract: function (a, b) {
     return a - b;
   },
-  divide: function(a, b) {
+  divide: function (a, b) {
     return a / b;
   },
-  multiply: function(a, b) {
+  multiply: function (a, b) {
     return a * b;
+  },
+};
+
+export function caesar(string, factor) {
+  const arrayedString = string.split("");
+  if (factor < 0) {
+    factor += 26;
   }
+  return arrayedString
+    .map((char) => {
+      const charCode = char.charCodeAt(0);
+      let shiftedValue = charCode + factor;
+      if (
+        (shiftedValue >= 97 && shiftedValue < 122) ||
+        (shiftedValue >= 65 && shiftedValue < 90)
+      ) {
+        return String.fromCharCode(shiftedValue);
+      } else if (shiftedValue >= 122 || shiftedValue >= 90) {
+        return String.fromCharCode(shiftedValue - 26);
+      } else {
+        return char;
+      }
+    })
+    .join("");
 }
+
+console.log('a'.charCodeAt(0) + 3)
+console.log(String.fromCharCode(100 - 26))
